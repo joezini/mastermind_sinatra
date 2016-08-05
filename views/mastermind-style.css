@@ -6,6 +6,18 @@ div.circle {
 	display: inline-block;
 }
 
+div.small-circle {
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+}
+
+.spacer {
+	width: 100px;
+}
+
 .red {
 	background-color: red;
 }
@@ -28,4 +40,12 @@ div.circle {
 
 .orange {
 	background-color: orange;
+}
+
+.black {
+	background-color: black;
+}
+
+.white {
+	background-color: white;
 }
