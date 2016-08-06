@@ -2,7 +2,7 @@ module Mastermind
 	def self.create_random_code
 		code = ""
 		(0..3).each do |i|
-			code += (rand(6) + 1).to_s
+			code += rand(6).to_s
 		end
 		code
 	end

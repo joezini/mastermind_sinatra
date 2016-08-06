@@ -15,22 +15,34 @@
 		<div class="circle <%= colors[g.guess[3].to_i] %>"></div>
 		<div class="spacer"></div>
 		<% g.black_pegs.times do %>
-		<div class="small-circle black"></div>
+		<div class="small-circle red"></div>
 		<% end %>
 		<% g.white_pegs.times do %>
-		<div class="small-circle red"></div>
+		<div class="small-circle white"></div>
 		<% end %>
 	</div>
 	<% end %>
 	<div class="playLine">
+		<% if game.turn == 1 %>
 		<div class="circle <%= colors[0] %>" id="1" onClick="cycleColor(this)"></div>
 		<div class="circle <%= colors[1] %>" id="2" onClick="cycleColor(this)"></div>
 		<div class="circle <%= colors[2] %>" id="3" onClick="cycleColor(this)"></div>
 		<div class="circle <%= colors[3] %>" id="4" onClick="cycleColor(this)"></div>
+		<% else %>
+		<% prev_guess = game.guesses[game.guesses.length-1] %>
+		<div class="circle <%= colors[prev_guess.guess[0].to_i] %>" id="1" onClick="cycleColor(this)"></div>
+		<div class="circle <%= colors[prev_guess.guess[1].to_i] %>" id="2" onClick="cycleColor(this)"></div>
+		<div class="circle <%= colors[prev_guess.guess[2].to_i] %>" id="3" onClick="cycleColor(this)"></div>
+		<div class="circle <%= colors[prev_guess.guess[3].to_i] %>" id="4" onClick="cycleColor(this)"></div>
+		<% end %>
 	</div>
 	<br>
 	<form>
+		<% if game.turn == 1 %>
 		<input type="hidden" name="guess" value="0123">
+		<% else %>
+		<input type="hidden" name="guess" value="<%= prev_guess.guess %>">
+		<% end %>
 		<input type="submit" value="Guess">
 	</form>
 	<% if game_over %>
