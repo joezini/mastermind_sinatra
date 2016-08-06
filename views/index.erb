@@ -4,18 +4,20 @@
 	<script src="mastermind-script.js"></script>
 </head>
 <body>
+	<h1>Mastermind</h1>
+	<img src="mastermind.jpg">
 	<% game.guesses.each do |g| %>
 	<div class="prevGuess">
-		<div class="circle <%= colors[g[0]] %>"></div>
-		<div class="circle <%= colors[g[1]] %>"></div>
-		<div class="circle <%= colors[g[2]] %>"></div>
-		<div class="circle <%= colors[g[3]] %>"></div>
+		<div class="circle <%= colors[g.guess[0].to_i] %>"></div>
+		<div class="circle <%= colors[g.guess[1].to_i] %>"></div>
+		<div class="circle <%= colors[g.guess[2].to_i] %>"></div>
+		<div class="circle <%= colors[g.guess[3].to_i] %>"></div>
 		<div class="spacer"></div>
 		<% g.black_pegs.times do %>
 		<div class="small-circle black"></div>
 		<% end %>
 		<% g.white_pegs.times do %>
-		<div class="small-circle white"></div>
+		<div class="small-circle red"></div>
 		<% end %>
 	</div>
 	<% end %>
@@ -25,11 +27,16 @@
 		<div class="circle <%= colors[2] %>" id="3" onClick="cycleColor(this)"></div>
 		<div class="circle <%= colors[3] %>" id="4" onClick="cycleColor(this)"></div>
 	</div>
+	<br>
 	<form>
-		<input type="hidden" name="guess" value="1234">
+		<input type="hidden" name="guess" value="0123">
 		<input type="submit" value="Guess">
 	</form>
 	<% if game_over %>
 	<p>Game over!</p>
 	<% end %>
+	<form>
+		<input type="hidden" name="new-game" value="true">
+		<input type="submit" value="New Game">
+	</form>
 </body>

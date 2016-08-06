@@ -1,3 +1,13 @@
+body {
+	font-family: Arial;
+	background-color: black;
+	color: white;
+}
+
+img {
+	float: right;
+}
+
 div.circle {
 	border: 2px solid black;
 	border-radius: 10px;
@@ -15,7 +25,8 @@ div.small-circle {
 }
 
 .spacer {
-	width: 100px;
+	width: 5px;
+	display: inline-block;
 }
 
 .red {
