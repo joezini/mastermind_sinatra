@@ -4,10 +4,6 @@ body {
 	color: white;
 }
 
-img {
-	float: right;
-}
-
 div.circle {
 	border: 2px solid black;
 	border-radius: 10px;
